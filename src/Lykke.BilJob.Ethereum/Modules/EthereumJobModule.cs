@@ -1,17 +1,19 @@
 using Autofac;
 using JetBrains.Annotations;
 using Lykke.BilJob.Ethereum.Settings;
+using Lykke.Quintessence.Core.DependencyInjection;
 using Lykke.Quintessence.Settings;
+using Lykke.SettingsReader;
 
 namespace Lykke.BilJob.Ethereum.Modules
 {
     [UsedImplicitly]
     public class EthereumJobModule : Module
     {
-        private readonly AppSettings<EthereumJobSettings> _appSettings;
+        private readonly IReloadingManager<AppSettings<EthereumJobSettings>> _appSettings;
 
         public EthereumJobModule(
-            AppSettings<EthereumJobSettings> appSettings)
+            IReloadingManager<AppSettings<EthereumJobSettings>> appSettings)
         {
             _appSettings = appSettings;
         }
@@ -19,7 +21,10 @@ namespace Lykke.BilJob.Ethereum.Modules
         protected override void Load(
             ContainerBuilder builder)
         {
-            
+            var chainId = _appSettings.CurrentValue.Job.IsMainNet ? 1 : 3;
+
+            builder
+                .UseChainId(chainId);
         }
     }
 }
