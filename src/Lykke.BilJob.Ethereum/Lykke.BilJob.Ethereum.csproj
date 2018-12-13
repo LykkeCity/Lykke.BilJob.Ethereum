@@ -14,7 +14,7 @@
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="Lykke.Quintessence.Job" Version="0.0.9-beta" />
+      <PackageReference Include="Lykke.Quintessence.Job" Version="0.0.12-beta" />
     </ItemGroup>
 
 </Project>
