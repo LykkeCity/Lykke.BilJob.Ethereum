@@ -14,7 +14,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <PackageReference Include="Lykke.Quintessence.Core.Telemetry" Version="0.0.12-beta" />
+      <PackageReference Include="Lykke.Quintessence.Core.Telemetry" Version="0.0.13-beta" />
       <PackageReference Include="Lykke.Quintessence.Job" Version="0.0.12-beta" />
     </ItemGroup>
 
